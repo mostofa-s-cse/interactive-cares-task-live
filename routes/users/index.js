@@ -10,15 +10,28 @@ router.post("/signup", user.signup);
 router.post("/login", user.login);
 
 //http://localhost:5000/api/v1/user/
-router.get("/", verifyToken, authorization("super_admin", "admin","user"), user.getAllUsers);
+router.get("/", user.getAllUsers);
 
 //http://localhost:5000/api/v1/user/:id
-router.get("/:id", verifyToken, authorization("super_admin", "admin","user"), user.getSingleUser);
+router.get("/:id", user.getSingleUser);
 
 //http://localhost:5000/api/v1/user/update/:id 
-router.put("/:id", verifyToken, authorization("super_admin", "admin","user"), user.updateUser);
+router.put("/:id", user.updateUser);
 
 // //http://localhost:5000/api/v1/user/delete/:id
-router.delete("/:id", verifyToken, authorization("super_admin", "admin","user"), user.deleteUser);
+router.delete("/:id", user.deleteUser);
+
+
+//http://localhost:5000/api/v1/user/
+// router.get("/", verifyToken, authorization("super_admin", "admin","user"), user.getAllUsers);
+
+//http://localhost:5000/api/v1/user/:id
+// router.get("/:id", verifyToken, authorization("super_admin", "admin","user"), user.getSingleUser);
+
+//http://localhost:5000/api/v1/user/update/:id 
+// router.put("/:id", verifyToken, authorization("super_admin", "admin","user"), user.updateUser);
+
+// //http://localhost:5000/api/v1/user/delete/:id
+// router.delete("/:id", verifyToken, authorization("super_admin", "admin","user"), user.deleteUser);
 
 module.exports = router;
